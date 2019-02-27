@@ -1,0 +1,40 @@
+
+def is_number(s)
+  return true if /^\s*\+\.\d+/ =~ s
+  return false if /\..*\./ =~ s
+  return false if /^\s*\d+e\d+\.\d+$/ =~ s
+  return true if /^\s*\.\d+\s*$/ =~ s
+  return false if (/^\s*\.\s*$/ =~ s) or (/^\s*$/ =~ s) or (/^\s*\.+.*\s*$/ =~ s) or
+    (/^\s*e\d+\s*$/ =~ s)
+
+  0 == (/^\s*(?!e)(?!\+\.)(?!\-\-)(?!\-\+)([+-]\d)?\d*\.?(\.\d)?\d*([e]\d)?(e[+-]\d+)?\d*\.?(\d*)?\s*$/ =~ s)
+end
+
+
+/^\s*(?!e)(?!-)(?![-+])([+-]\d)?\d*(\.\d)?\d*+([e]\d)?(e[+-]\d+)?\d*\.?(\d*)?\s*$/ =~ 'te1'
+
+is_number("te1")
+is_number("..2")
+is_number('+.8')
+is_number('-1.')
+is_number(".1")
+is_number("2e10")
+is_number(" -90e3   " )
+is_number(" 1e" )
+is_number(" 6e-1" )
+is_number(" 99e2.5 " )
+is_number("53.5e93" )
+is_number("95a54e53" )
+is_number("0")
+is_number(" 0.1 ")
+is_number("abc" )
+is_number("1 a" )
+is_number("e3" )
+is_number(" --6 " )
+is_number("-+3" )
+
+
+/^\.\..*$/ =~ "..2"
+
+/^\s*(?!\-\+)([+-]\d)?\d*\.?(\.\d)?\d*([e]\d)?(e[+-]\d+)?\d*\.?(\d*)?\s*$/ =~ "-1."
+/^(?!\+\.)/ =~ '+.8'

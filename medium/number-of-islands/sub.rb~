@@ -1,0 +1,26 @@
+def paint(grid, i, j, color)
+  grid[i][j] = color
+  paint(grid, i+1, j, color) if !grid[i+1].nil? and grid[i+1][j] == '1'
+  paint(grid, i, j+1, color) if !grid[i].nil? and grid[i][j+1] == '1'
+  paint(grid, i-1, j, color) if (i > 0) and !grid[i-1].nil? and grid[i-1][j] == '1'
+  paint(grid, i, j-1, color) if (j > 0) and !grid[i].nil? and grid[i][j-1] == '1'
+end
+
+
+# @param {Character[][]} grid
+# @return {Integer}
+def num_islands(grid)
+  color = 2
+
+  (0..grid.size-1).each do |i|
+    (0..grid[0].size-1).each do |j|
+      if grid[i][j] == '1'
+        paint(grid, i, j, color)
+        color += 1
+      end
+
+    end
+  end
+  return color - 2
+end
+

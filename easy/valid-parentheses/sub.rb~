@@ -1,0 +1,27 @@
+# @param {String} s
+# @return {Boolean}
+def is_valid(s)
+  st = []                   # => []
+  s.split('').each do |c|   # => ["(", ")"]
+    case c                  # => "("
+    when '('
+      st << ')'             # => [")"]
+      break
+    when '['
+      st << ']'
+      next
+    when '{'
+      st << '}'
+      next
+    else
+      if c == st[-1]
+        st.pop!
+      else
+        return false
+      end
+    end
+  end                       # => nil
+  return true if st.empty?  # => false
+end                         # => :is_valid
+
+is_valid("()")  # => nil

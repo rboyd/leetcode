@@ -1,0 +1,32 @@
+# @param {Integer[]} nums
+# @return {Integer}
+def remove_duplicates(nums)
+  print nums
+  (0..nums.size-1).each do |i|
+    if nums[i].nil? then
+      j = i
+      loop do
+        j += 1
+        if !nums[j].nil?
+          nums[i] = nums[j]
+          break
+        end
+      end
+      return i
+    end
+
+    j = i
+    loop do
+      j += 1
+      break if j == nums.size-1
+      break if nums[j] > nums[i]
+      nums[j] = nil if nums[j] == nums[i]
+    end
+
+  end
+  return nums.size
+end
+
+
+remove_duplicates([0,0,1,1,1,2,2,3,3,4])
+#remove_duplicates([1,1,2])  # => 1

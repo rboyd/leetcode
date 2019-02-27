@@ -1,0 +1,29 @@
+class Solution:
+    def countAndSay(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        ret = "1"
+        for i in range(n):
+            latest = ""
+            if i < 2:
+                next
+            else:
+                c = ret[0]
+                latest = ""
+                count = 0
+                for j in range(len(ret)):
+                    if ret[j] == c and j < len(ret) - 1:
+                        count += 1
+                    else:
+                        # convert 'count' integer to string
+                        latest = latest + str(count) + c
+                        c = ret[j]
+                        count = 1
+                    ret = latest
+        return ret
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.countAndSay(1))

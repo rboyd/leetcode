@@ -1,0 +1,3 @@
+def is_number(s)
+    /[+-]?(\d+[e?]|\d+[e?]\d*)([.]\d*)?/ =~ s
+end
