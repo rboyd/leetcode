@@ -1,0 +1,14 @@
+# @param {Integer[]} nums
+# @param {Integer} target
+# @return {Integer[]}
+def two_sum(nums, target)
+  h = {}
+  nums.each_with_index { |n, i| h[n] = i }
+
+  nums.each_with_index do |n, i|
+    lookup = h[target-i]
+    return [i, lookup] unless lookup.nil?
+  end
+end
+
+two_sum([2, 7, 11, 15], 9)
