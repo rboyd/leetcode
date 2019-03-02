@@ -31,7 +31,7 @@ def k_closest2(points, k)
 end
 
 
-# XXX TODO: research quickselect solution, min or max heap solution
+# XXX TODO: research quickselect solution, min or max heap https://github.com/apleroy/minimum_spanning_tree_google_maps_api/blob/master/app/classes/min_heap.rb solution
 
 # x, y = [1, 2]
 # x
