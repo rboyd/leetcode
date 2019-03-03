@@ -1,3 +1,6 @@
+# Catalan number = https://en.wikipedia.org/wiki/Catalan_number
+# https://stackoverflow.com/questions/727707/finding-all-combinations-of-well-formed-brackets?noredirect=1&lq=1
+
 # @param {Integer} n
 # @return {String[]}
 
